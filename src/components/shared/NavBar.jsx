@@ -52,7 +52,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end font-montserrat">
-        <a className="btn bg-[#F5BB00] hover:bg-[#cc9c00] hove text-xl text-black">
+        <a className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
           Login
         </a>
       </div>

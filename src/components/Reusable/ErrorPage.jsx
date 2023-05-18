@@ -5,6 +5,7 @@ import batSignal from "../../assets/batsignal.json";
 
 const ErrorPage = () => {
   const error = useRouteError();
+  console.log(error);
   return (
     <div className="hero min-h-screen bg-base-100">
       <div className="hero-content flex-col">
@@ -15,7 +16,11 @@ const ErrorPage = () => {
         <Lottie animationData={batSignal} loop={true}></Lottie>
         <div>
           <br />
-          <h1 className="text-5xl text-black text-center">{error.data}</h1>
+          <h1 className="text-5xl text-black text-center">
+            {error.status} : {error.statusText}
+          </h1>
+          <br />
+          <p className="text-2xl text-black text-center">{error.data}</p>
           <br />
           <div className="flex justify-center">
             <a href="/">
