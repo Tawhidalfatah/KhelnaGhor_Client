@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -7,10 +7,15 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleSignIn = () => {
+  const handleSignIn = (event) => {
+    event.preventDefault();
     signIn(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
       .catch((error) => console.log(error));
   };
 
@@ -60,8 +65,11 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
-              <div onClick={handleSignIn} className="form-control mt-6">
-                <button className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
+              <div className="form-control mt-6">
+                <button
+                  onClick={handleSignIn}
+                  className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
+                >
                   Login
                 </button>
               </div>

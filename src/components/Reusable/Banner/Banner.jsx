@@ -22,7 +22,7 @@ const Banner = () => {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper bg-gray-400 mt-3 rounded-lg"
+        className="mySwiper bg-[#56A3A6] mt-3 rounded-lg"
       >
         <SwiperSlide>
           {" "}

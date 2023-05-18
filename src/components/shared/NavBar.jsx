@@ -36,8 +36,18 @@ const NavBar = () => {
               <a>Home</a>
             </li>
             <li tabIndex={0}>
-              <a className="justify-between">All Toys</a>
+              <a>All Toys</a>
             </li>
+            {user && (
+              <>
+                <li>
+                  <a>My Toys</a>
+                </li>
+                <li>
+                  <a>Add a Toy</a>
+                </li>
+              </>
+            )}
             <li>
               <a>Blogs</a>
             </li>
@@ -55,20 +65,43 @@ const NavBar = () => {
           <li>
             <Link to="/alltoys">All Toys</Link>
           </li>
+          {user && (
+            <>
+              <li>
+                <a>My Toys</a>
+              </li>
+              <li>
+                <a>Add a Toy</a>
+              </li>
+            </>
+          )}
           <li>
             <Link to="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>
-      {user && <p>{user.email}</p>}
+
       <div className="navbar-end font-montserrat">
         {user ? (
-          <Link
-            onClick={handleSignOut}
-            className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
-          >
-            Logout
-          </Link>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img title={user?.displayName} src={user?.photoURL} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#56A3A6] rounded-box w-52"
+            >
+              <li>
+                <p>{user?.email}</p>
+              </li>
+
+              <li>
+                <a onClick={handleSignOut}>Logout</a>
+              </li>
+            </ul>
+          </div>
         ) : (
           <Link
             to="/login"
