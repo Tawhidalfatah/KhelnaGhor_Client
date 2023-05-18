@@ -1,6 +1,29 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [photo, setPhoto] = useState("");
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    createUser(email, password)
+      .then((result) => {
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse ">
@@ -16,6 +39,7 @@ const Register = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
+                  onChange={(e) => setName(e.target.value)}
                   type="text"
                   name="name"
                   placeholder="Name"
@@ -28,6 +52,7 @@ const Register = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   name="email"
                   placeholder="email"
@@ -40,6 +65,7 @@ const Register = () => {
                   <span className="label-text">Photo URL</span>
                 </label>
                 <input
+                  onChange={(e) => setPhoto(e.target.value)}
                   type="url"
                   name="photo"
                   placeholder="Photo URL"
@@ -52,6 +78,7 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   placeholder="password"
@@ -65,8 +92,11 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
-                  Login
+                <button
+                  onClick={handleSignUp}
+                  className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
+                >
+                  Register
                 </button>
               </div>
             </form>

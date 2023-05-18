@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { signIn } = useContext(AuthContext);
+
+  const handleSignIn = () => {
+    signIn(email, password)
+      .then((result) => console.log(result.user))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -19,6 +31,7 @@ const Login = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   name="email"
                   placeholder="email"
@@ -31,6 +44,7 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   placeholder="password"
@@ -46,7 +60,7 @@ const Login = () => {
                   </Link>
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div onClick={handleSignIn} className="form-control mt-6">
                 <button className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
                   Login
                 </button>
