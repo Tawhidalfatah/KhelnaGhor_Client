@@ -9,7 +9,7 @@ const NavBar = () => {
     logOut();
   };
   return (
-    <div className="navbar bg-[#56A3A6] rounded-lg text-white">
+    <div className="navbar bg-[#373A36] rounded-lg text-white">
       <div className="navbar-start">
         <div className="dropdown ">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,30 +53,39 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost font-satisfy normal-case text-3xl">
+        <a className="btn btn-ghost font-montserrat normal-case text-3xl">
           KhelnaGhor
         </a>
       </div>
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/" className="active:bg-[#F5BB00] active:text-black">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/alltoys">All Toys</Link>
+            <Link
+              className="active:bg-[#F5BB00] active:text-black"
+              to="/alltoys"
+            >
+              All Toys
+            </Link>
           </li>
           {user && (
             <>
               <li>
-                <a>My Toys</a>
+                <Link to="/mytoys">My Toys</Link>
               </li>
               <li>
-                <a>Add a Toy</a>
+                <Link to="/addtoy">Add Toy</Link>
               </li>
             </>
           )}
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <Link className="active:bg-[#F5BB00] active:text-black" to="/blogs">
+              Blogs
+            </Link>
           </li>
         </ul>
       </div>

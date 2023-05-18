@@ -25,18 +25,18 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse ">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register Now!</h1>
           <p className="py-6">Sign Up to browse your favourite pop figures</p>
         </div>
-        <div className="card w-full max-w-xl shadow-2xl bg-base-100">
+        <div className="card w-full max-w-xl shadow-2xl bg-[#373A36]">
           <div className="card-body">
             <form>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text text-white">Name</span>
                 </label>
                 <input
                   onChange={(e) => setName(e.target.value)}
@@ -49,7 +49,7 @@ const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white">Email</span>
                 </label>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
@@ -62,7 +62,7 @@ const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Photo URL</span>
+                  <span className="label-text text-white">Photo URL</span>
                 </label>
                 <input
                   onChange={(e) => setPhoto(e.target.value)}
@@ -75,7 +75,7 @@ const Register = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
@@ -85,11 +85,13 @@ const Register = () => {
                   className="input input-bordered"
                   required
                 />
-                <label className="label">
-                  <Link to="/login" className="label-text-alt link link-hover">
-                    Already have an account? Sign In!!
-                  </Link>
-                </label>
+                <br />
+                <Link
+                  to="/login"
+                  className="  text-white hover:text-[#F5BB00] link "
+                >
+                  Already have an account? Sign In!!
+                </Link>
               </div>
               <div className="form-control mt-6">
                 <button

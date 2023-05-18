@@ -8,38 +8,104 @@ import "swiper/css/navigation";
 import "./Banner.css";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
+import { useRef } from "react";
 
 const Banner = () => {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty("--progress", 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
   return (
     <>
       <Swiper
-        slidesPerView={1}
+        centeredSlides={true}
         spaceBetween={30}
-        loop={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
+        loop={true}
         navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper bg-[#56A3A6] mt-3 rounded-lg"
+        modules={[Autoplay, Pagination, Navigation]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        className="mySwiper  bg-base-300 mt-3 rounded-lg"
       >
         <SwiperSlide>
-          {" "}
-          <img src="https://i.ibb.co/VwM9NRg/deadpool.png" alt="" />
+          <div className="flex justify-center gap-2">
+            <img
+              src="https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png"
+              alt=""
+            />
+            <div className="flex items-center text-center ">
+              <h1 className="text-5xl text-black leading-relaxed">
+                Pop up your collection
+                <br /> with our newly imported
+                <br />
+                Funko POPs!!
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src="https://i.ibb.co/VwM9NRg/deadpool.png" alt="" />
+          <div className="flex justify-center gap-2">
+            <img
+              src="https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png"
+              alt=""
+            />
+            <div className="flex items-center text-center ">
+              <h1 className="text-5xl text-black leading-relaxed">
+                Pop up your collection
+                <br /> with our newly imported
+                <br />
+                Funko POPs!!
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src="https://i.ibb.co/VwM9NRg/deadpool.png" alt="" />
+          <div className="flex justify-center gap-2">
+            <img
+              src="https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png"
+              alt=""
+            />
+            <div className="flex items-center text-center ">
+              <h1 className="text-5xl text-black leading-relaxed">
+                Pop up your collection
+                <br /> with our newly imported
+                <br />
+                Funko POPs!!
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
-          {" "}
-          <img src="https://i.ibb.co/VwM9NRg/deadpool.png" alt="" />
+          <div className="flex justify-center gap-2">
+            <img
+              src="https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png"
+              alt=""
+            />
+            <div className="flex items-center text-center ">
+              <h1 className="text-5xl text-black leading-relaxed">
+                Pop up your collection
+                <br /> with our newly imported
+                <br />
+                Funko POPs!!
+              </h1>
+            </div>
+          </div>
         </SwiperSlide>
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span ref={progressContent}></span>
+        </div>
       </Swiper>
     </>
   );
