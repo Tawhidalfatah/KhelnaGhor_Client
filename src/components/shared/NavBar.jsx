@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const NavBar = () => {
   return (
     <div className="navbar bg-[#56A3A6] rounded-lg text-white">
@@ -41,20 +43,23 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a>All Toys</a>
+            <Link to="/alltoys">All Toys</Link>
           </li>
           <li>
-            <a>Blogs</a>
+            <Link to="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end font-montserrat">
-        <a className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
+        <Link
+          to="/login"
+          className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
+        >
           Login
-        </a>
+        </Link>
       </div>
     </div>
   );
