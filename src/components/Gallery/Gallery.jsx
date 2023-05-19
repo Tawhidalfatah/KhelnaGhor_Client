@@ -1,4 +1,4 @@
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 
 const imgSources = [
   "https://i.ibb.co/rQbvcZP/logan.png",
@@ -28,16 +28,30 @@ const imgSources = [
 
 const Gallery = () => {
   return (
-    <div className="">
+    <>
       <h1 className="text-center text-3xl lg:text-6xl my-10">
         Meet your favourite superheroes!!
       </h1>
+      <div className="grid grid-cols-4 my-10 py-10 gap-5">
+        {imgSources.map((img, index) => {
+          return (
+            <div
+              className="border border-[#F5BB00] rounded-lg shadow-lg flex justify-center"
+              key={index}
+            >
+              <img src={img} width={200} height={200} />
+            </div>
+          );
+        })}
+
+        {/* 
       <Marquee style={{ border: "4px solid #F5BB00", borderRadius: "8px" }}>
         {imgSources.map((img, index) => (
           <img key={index} src={img} width="400" height="400"></img>
         ))}
-      </Marquee>
-    </div>
+      </Marquee> */}
+      </div>
+    </>
   );
 };
 
