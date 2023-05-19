@@ -31,7 +31,7 @@ const Blogs = () => {
           <h2 className="text-2xl">What is express js? What is Nest JS</h2>
           <p>
             express.js is a framework for Node.js. It is used for build web
-            servers and api's using javascript. Whereas Nest.js is also a
+            servers and api using javascript. Whereas Nest.js is also a
             framework for Node.js which is used for server side applications but
             it uses typescript.
           </p>

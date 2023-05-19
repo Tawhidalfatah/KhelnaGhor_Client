@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -33,7 +34,7 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#56A3A6] rounded-box w-52 font-bold font-montserrat"
           >
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
               <a>All Toys</a>
@@ -53,7 +54,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost font-montserrat normal-case text-3xl">
+        <a className="btn btn-ghost font-montserrat normal-case text-xl lg:text-3xl">
           KhelnaGhor
         </a>
       </div>
@@ -95,7 +96,7 @@ const NavBar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img title={user?.displayName} src={user?.photoURL} />
+                <img data-tooltip-id="my-tooltip" src={user?.photoURL} />
               </div>
             </label>
             <ul
@@ -120,6 +121,12 @@ const NavBar = () => {
           </Link>
         )}
       </div>
+      <Tooltip
+        id="my-tooltip"
+        style={{ backgroundColor: "#F5BB00", color: "#222" }}
+        content={user?.displayName}
+        place="left"
+      />
     </div>
   );
 };
