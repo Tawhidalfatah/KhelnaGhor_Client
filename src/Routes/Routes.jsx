@@ -23,6 +23,8 @@ export const router = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToys></AllToys>,
+        loader: () =>
+          fetch("https://b7a11-toy-marketplace-server.vercel.app/alltoys"),
       },
       {
         path: "mytoys",
