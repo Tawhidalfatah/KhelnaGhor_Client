@@ -1,41 +1,48 @@
-import { useLoaderData } from "react-router-dom";
 import ToyRow from "./ToyRow";
+import { useEffect, useState } from "react";
 
 const AllToys = () => {
-  const allToys = useLoaderData();
+  const [allToys, setAllToys] = useState([]);
+  const [searchName, setSearchName] = useState("");
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/alltoys?toyname=${searchName}`)
+      .then((res) => res.json())
+      .then((data) => setAllToys(data));
+  }, [searchName]);
 
   return (
-    <div className="overflow-x-auto mt-14 rounded-lg shadow-lg">
-      <table className="table w-full">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>SL</th>
-            <th>Seller</th>
-            <th>Toy</th>
-            <th>Sub-Category</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {allToys.map((toy, index) => (
-            <ToyRow key={toy._id} toy={toy} index={index}></ToyRow>
-          ))}
-
-          {/* <tr>
-            <th>1</th>
-            <td>nam</td>
-            <td>Quality</td>
-            <td>Blue</td>
-            <td>Blue</td>
-            <td>Blue</td>
-            <td></td>
-          </tr> */}
-        </tbody>
-      </table>
-    </div>
+    <>
+      <div className="flex justify-center my-5 ">
+        <input
+          onChange={(e) => setSearchName(e.target.value)}
+          type="text"
+          placeholder="Search by Toy Name"
+          className="input input-bordered w-1/2 rounded-lg shadow-lg"
+        />
+      </div>
+      <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
+        <table className="table w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>SL</th>
+              <th>Toy</th>
+              <th>Seller</th>
+              <th>Sub-Category</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {allToys.map((toy, index) => (
+              <ToyRow key={toy._id} toy={toy} index={index}></ToyRow>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
