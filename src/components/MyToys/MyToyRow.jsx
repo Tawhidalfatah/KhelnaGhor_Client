@@ -1,8 +1,35 @@
-import { FaUpload } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
-const MyToyRow = ({ myToy, index }) => {
+const MyToyRow = ({ myToy, index, toggle, setToggle }) => {
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toy/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              setToggle(!toggle);
+            }
+          });
+      }
+    });
+  };
   const {
+    _id,
     description,
     email,
     picture,
@@ -36,12 +63,15 @@ const MyToyRow = ({ myToy, index }) => {
         <td>${price}</td>
         <td>{rating}</td>
         <td>{quantity}</td>
-        <td className="truncate">{description.slice(-0, 20)}...</td>
+        <td>{description.slice(-0, 20)}...</td>
         <td className="flex justify-between items-center gap-2">
-          <button className="btn btn-square ">
-            <FaUpload className="w-5 h-5" />
+          <button className="btn btn-square bg-[#F5BB00] hover:bg-[#cc9c00] text-black">
+            <FaEdit className="w-5 h-5" />
           </button>
-          <button className="btn btn-square">
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn btn-square bg-[#F5BB00] hover:bg-[#cc9c00] text-black"
+          >
             <MdDelete className="w-5 h-5" />
           </button>
         </td>

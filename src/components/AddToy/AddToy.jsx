@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const AddToy = () => {
+  const { user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -26,12 +29,14 @@ const AddToy = () => {
           <input
             className="w-1/2  input input-bordered input-md"
             type="text"
+            value={user.displayName}
             placeholder="Seller Name"
             {...register("seller", { required: true })}
           />
           <input
             className="w-1/2 input input-bordered input-md"
             type="email"
+            value={user.email}
             placeholder="Seller Email"
             {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
           />

@@ -4,21 +4,21 @@ import MyToyRow from "./MyToyRow";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
-
-  const userEmail = user.email;
   const [myToys, setMyToys] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const userEmail = user.email;
 
   useEffect(() => {
     fetch(`http://localhost:5000/alltoys/${userEmail}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [userEmail]);
+  }, [userEmail, toggle]);
 
   console.log(myToys);
 
   return (
     <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
-      <table className="table w-full">
+      <table className="table table-auto w-full">
         <thead>
           <tr>
             <th>SL</th>
@@ -35,7 +35,13 @@ const MyToys = () => {
         </thead>
         <tbody>
           {myToys.map((myToy, index) => (
-            <MyToyRow key={myToy._id} index={index} myToy={myToy}></MyToyRow>
+            <MyToyRow
+              key={myToy._id}
+              index={index}
+              myToy={myToy}
+              toggle={toggle}
+              setToggle={setToggle}
+            ></MyToyRow>
           ))}
         </tbody>
       </table>
