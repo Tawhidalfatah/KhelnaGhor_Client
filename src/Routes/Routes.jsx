@@ -9,6 +9,7 @@ import Register from "../components/Register/Register";
 import MyToys from "../components/MyToys/MyToys";
 import AddToy from "../components/AddToy/AddToy";
 import PrivateRoute from "./PrivateRoute";
+import ToyDetails from "../components/ToyDetails/ToyDetails";
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "alltoys",
         element: <AllToys></AllToys>,
-        loader: () =>
-          fetch("https://b7a11-toy-marketplace-server.vercel.app/alltoys"),
+      },
+      {
+        path: "toy/:id",
+        element: <ToyDetails></ToyDetails>,
       },
       {
         path: "mytoys",

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ToyRow = ({ toy, index }) => {
   return (
     <>
@@ -21,9 +23,11 @@ const ToyRow = ({ toy, index }) => {
         <td>${toy?.price}</td>
         <td>{toy?.quantity}</td>
         <td>
-          <button className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
-            View Details
-          </button>
+          <Link to={`/toy/${toy?._id}`}>
+            <button className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black">
+              View Details
+            </button>
+          </Link>
         </td>
       </tr>
     </>
