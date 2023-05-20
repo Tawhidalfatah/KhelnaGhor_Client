@@ -7,18 +7,30 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [sortBy, setSortBy] = useState(" ");
   const userEmail = user.email;
+  console.log(sortBy);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoys/${userEmail}`)
+    fetch(`http://localhost:5000/alltoys/${userEmail}?sortby=${sortBy}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [userEmail, toggle]);
+  }, [userEmail, toggle, sortBy]);
 
   console.log(myToys);
 
   return (
     <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
+      <select
+        value={sortBy}
+        onChange={(e) => setSortBy(e.target.value)}
+        name="sortby"
+        id=""
+      >
+        <option value="all">Default</option>
+        <option value="descending">Descending</option>
+        <option value="ascending">Ascending</option>
+      </select>
       <PageTitle title="My Toys"></PageTitle>
       <table className="table table-auto w-full">
         <thead>

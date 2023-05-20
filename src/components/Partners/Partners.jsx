@@ -1,5 +1,3 @@
-import Marquee from "react-fast-marquee";
-
 const Partners = () => {
   const imgSources = [
     "https://i.ibb.co/9cKDbWm/wb.png",
