@@ -8,7 +8,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
-  const from = location?.state?.pathname || "/";
+  const from = location?.state?.from?.pathname || "/";
+
   const navigate = useNavigate();
 
   const handleSignIn = (event) => {
