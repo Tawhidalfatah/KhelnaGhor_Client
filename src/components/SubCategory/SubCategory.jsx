@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ToyCard from "./ToyCard";
-import { Tab, TabList, Tabs } from "react-tabs";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 const SubCategory = () => {
   const [allToys, setAllToys] = useState([]);
@@ -51,6 +51,18 @@ const SubCategory = () => {
               All
             </Tab>
           </TabList>
+          <TabPanel>
+            <h1></h1>
+          </TabPanel>
+          <TabPanel>
+            <h1></h1>
+          </TabPanel>
+          <TabPanel>
+            <h1></h1>
+          </TabPanel>
+          <TabPanel>
+            <h1></h1>
+          </TabPanel>
         </Tabs>
       </div>
       <div className="grid grid-cols-3 gap-5">

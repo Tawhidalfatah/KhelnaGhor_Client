@@ -2,12 +2,14 @@ import Lottie from "lottie-react";
 
 import { useRouteError } from "react-router-dom";
 import batSignal from "../../assets/batsignal.json";
+import PageTitle from "./PageTitle/PageTitle";
 
 const ErrorPage = () => {
   const error = useRouteError();
   console.log(error);
   return (
     <div className="hero min-h-screen bg-base-100">
+      <PageTitle title="ERROR"></PageTitle>
       <div className="hero-content flex-col">
         <h1 className="text-8xl text-black text-center font-bangers">
           Can not find Batman!!

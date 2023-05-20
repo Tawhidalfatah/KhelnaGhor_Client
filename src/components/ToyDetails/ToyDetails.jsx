@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const ToyDetails = () => {
   const id = useParams();
@@ -25,6 +26,7 @@ const ToyDetails = () => {
 
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl my-10">
+      <PageTitle title={`${toyname} Details`}></PageTitle>
       <figure>
         <img
           className="border rounded bg-base-300 shadow-lg"

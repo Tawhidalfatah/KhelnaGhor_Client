@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -34,6 +35,7 @@ const Login = () => {
 
   return (
     <div className="hero min-h-screen rounded-lg mt-5">
+      <PageTitle title="Login Page"></PageTitle>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Login now!</h1>

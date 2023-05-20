@@ -1,6 +1,9 @@
+import PageTitle from "../Reusable/PageTitle/PageTitle";
+
 const Blogs = () => {
   return (
     <div>
+      <PageTitle title={`Blogs`}></PageTitle>
       <br />
       <h1 className="text-7xl text-center">Questions and Answers</h1>
       <br />

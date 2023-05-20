@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -26,6 +27,7 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen">
+      <PageTitle title={`Registration`}></PageTitle>
       <div className="hero-content flex-col lg:flex-row-reverse ">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register Now!</h1>

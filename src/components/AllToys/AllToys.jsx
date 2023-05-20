@@ -1,3 +1,4 @@
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 import ToyRow from "./ToyRow";
 import { useEffect, useState } from "react";
 
@@ -14,6 +15,7 @@ const AllToys = () => {
   return (
     <>
       <div className="flex justify-center my-5 ">
+        <PageTitle title={`All Toys`}></PageTitle>
         <input
           onChange={(e) => setSearchName(e.target.value)}
           type="text"

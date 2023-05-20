@@ -87,6 +87,12 @@ const AddToy = () => {
             placeholder="Available Quanitity"
             {...register("quantity", { required: true })}
           />
+          <input
+            className="input input-bordered input-md"
+            type="number"
+            placeholder="Price"
+            {...register("price", { required: true })}
+          />
         </div>
         <div className="flex justify-center">
           <input

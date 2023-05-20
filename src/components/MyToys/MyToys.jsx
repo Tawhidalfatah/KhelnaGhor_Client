@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyToyRow from "./MyToyRow";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const MyToys = () => {
 
   return (
     <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
+      <PageTitle title="My Toys"></PageTitle>
       <table className="table table-auto w-full">
         <thead>
           <tr>
