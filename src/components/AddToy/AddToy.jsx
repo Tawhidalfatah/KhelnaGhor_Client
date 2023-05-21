@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -33,6 +34,7 @@ const AddToy = () => {
 
   return (
     <>
+      <PageTitle title={`Add Toy`}></PageTitle>
       <div className="mt-24 border-4 shadow-lg rounded-lg p-14 font-extrabold">
         <h1 className="text-6xl text-center font-bold my-14">Add a Toy</h1>
         <form
@@ -64,7 +66,7 @@ const AddToy = () => {
               {...register("toyname", { required: true })}
             />
             <select
-              className=" select select-bordered border-4 border-[#F5BB00]"
+              className=" select select-bordered border-2 border-[#F5BB00]"
               {...register("subcategory", { required: true })}
             >
               <option value="Marvel">Marvel</option>

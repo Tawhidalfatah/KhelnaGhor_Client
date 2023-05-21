@@ -10,7 +10,9 @@ const Home = () => {
     <div>
       <PageTitle title="KG || Home"></PageTitle>
       <Banner></Banner>
+      <div className="divider"></div>
       <Gallery></Gallery>
+      <div className="divider"></div>
       <SubCategory></SubCategory>
       <OtherProducts></OtherProducts>
       <Partners></Partners>

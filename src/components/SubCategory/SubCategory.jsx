@@ -25,6 +25,9 @@ const SubCategory = () => {
   return (
     <>
       <div>
+        <h1 className="text-center text-6xl font-bold my-14">
+          Browse by Sub-Category
+        </h1>
         <Tabs className="tabs flex justify-center ">
           <TabList>
             <Tab

@@ -51,7 +51,7 @@ const UpdateToy = () => {
         <div className="card border-2 w-96 bg-base-100 shadow-xl">
           <PageTitle title={`Update:`}></PageTitle>
           <figure className="px-10 pt-10">
-            <img src={toy.picture} className="rounded-xl" />
+            <img src={toy.picture} className="border rounded-xl bg-base-300" />
           </figure>
           <div className="card-body items-center text-center">
             <form
@@ -60,13 +60,13 @@ const UpdateToy = () => {
             >
               <div className="flex justify-center gap-2">
                 <input
-                  className="input w-full input-bordered"
+                  className="input w-full input-bordered border-2 border-[#F5BB00]"
                   type="number"
                   placeholder="Price (USD)"
                   {...register("price", { required: true })}
                 />
                 <input
-                  className="input w-full input-bordered"
+                  className="input w-full input-bordered border-2 border-[#F5BB00]"
                   type="number"
                   placeholder="Quanitity"
                   {...register("quantity", { required: true })}
@@ -74,7 +74,7 @@ const UpdateToy = () => {
               </div>
               <div className="flex justify-center">
                 <input
-                  className="w-1/2 input input-bordered input-md"
+                  className="w-1/2 input input-bordered input-md border-2 border-[#F5BB00]"
                   type="text"
                   placeholder="Toy Description"
                   {...register("description", { required: true })}

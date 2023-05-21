@@ -54,7 +54,7 @@ const imgSources = [
 const Gallery = () => {
   return (
     <>
-      <h1 className="text-center text-3xl lg:text-6xl my-10">
+      <h1 className="text-center text-3xl lg:text-6xl my-14">
         Meet your favourite Superheroes & Villains
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 my-10 py-10 gap-5">
