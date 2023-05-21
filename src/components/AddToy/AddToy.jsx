@@ -11,9 +11,12 @@ const AddToy = () => {
   const {
     register,
     handleSubmit,
+
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    const convertedPrice = parseFloat(data.price);
+    data.price = convertedPrice;
     fetch("https://b7a11-toy-marketplace-server.vercel.app/addtoy", {
       method: "POST",
       headers: {

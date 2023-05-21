@@ -38,7 +38,7 @@ const MyToys = () => {
       ) : (
         <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
           <div className="flex justify-center gap-2 items-center  my-5">
-            <label className="label font-bold">Sort By :</label>
+            <label className="label font-bold">Sort By Price :</label>
             <select
               className="select select-warning select-md"
               value={sortBy}
