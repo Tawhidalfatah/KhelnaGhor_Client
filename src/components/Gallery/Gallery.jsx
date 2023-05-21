@@ -1,44 +1,74 @@
 const imgSources = [
-  "https://i.ibb.co/rQbvcZP/logan.png",
+  {
+    img: "https://i.ibb.co/rQbvcZP/logan.png",
+    phrase: "They call me Wolverine",
+  },
 
-  "https://i.ibb.co/mbmhV2n/batman.png",
+  {
+    img: "https://i.ibb.co/mbmhV2n/batman.png",
+    phrase: "I am the Dark Knight",
+  },
 
-  "https://i.ibb.co/gSdXJRC/aquaman.png",
+  {
+    img: "https://i.ibb.co/gSdXJRC/aquaman.png",
+    phrase: "I am the King of the Sea",
+  },
 
-  "https://i.ibb.co/dKrcc25/wonderwoman.png",
+  {
+    img: "https://i.ibb.co/dKrcc25/wonderwoman.png",
+    phrase: "I am an Amazonian",
+  },
 
-  "https://i.ibb.co/sj4Ysvp/wonderwhite.png",
+  {
+    img: "https://i.ibb.co/sj4Ysvp/wonderwhite.png",
+    phrase: "I am an Amazonian but better",
+  },
 
-  "https://i.ibb.co/Kh8p1FG/thanos.png",
+  {
+    img: "https://i.ibb.co/Kh8p1FG/thanos.png",
+    phrase: "Gone, reduced to Atoms",
+  },
 
-  "https://i.ibb.co/FnQY8Dx/superman.png",
+  { img: "https://i.ibb.co/FnQY8Dx/superman.png", phrase: "S means Hope" },
 
-  "https://i.ibb.co/vLxN27Q/groot.png",
+  { img: "https://i.ibb.co/vLxN27Q/groot.png", phrase: "I am Groot" },
 
-  "https://i.ibb.co/gwJjwYk/strange.png",
+  {
+    img: "https://i.ibb.co/gwJjwYk/strange.png",
+    phrase: "Dr. Stephen Strange",
+  },
 
-  "https://i.ibb.co/4pTyWj1/gamora.png",
+  {
+    img: "https://i.ibb.co/4pTyWj1/gamora.png",
+    phrase: "I am what my father made me",
+  },
 
-  "https://i.ibb.co/4sDSpBJ/gwen.png",
+  {
+    img: "https://i.ibb.co/4sDSpBJ/gwen.png",
+    phrase: "Yehe, Spider-Gwen here",
+  },
 
-  "https://i.ibb.co/LSgRz0v/drax.png",
+  { img: "https://i.ibb.co/LSgRz0v/drax.png", phrase: "You can not see me" },
 ];
 
 const Gallery = () => {
   return (
     <>
       <h1 className="text-center text-3xl lg:text-6xl my-10">
-        Meet your favourite superheroes!!
+        Meet your favourite Superheroes & Villains
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 my-10 py-10 gap-5">
         {imgSources.map((img, index) => {
           return (
-            <div
-              className="border border-[#F5BB00] rounded-lg shadow-lg flex justify-center"
-              key={index}
-            >
-              <img src={img} width={200} height={200} />
-            </div>
+            <>
+              <div
+                data-tip={img.phrase}
+                className="border tooltip tooltip-warning  border-[#F5BB00] rounded-lg shadow-lg flex justify-center"
+                key={index}
+              >
+                <img src={img.img} width={200} height={200} />
+              </div>
+            </>
           );
         })}
       </div>

@@ -25,16 +25,22 @@ const MyToys = () => {
 
   return (
     <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
-      <select
-        value={sortBy}
-        onChange={(e) => setSortBy(e.target.value)}
-        name="sortby"
-        id=""
-      >
-        <option value="all">Default</option>
-        <option value="descending">Descending</option>
-        <option value="ascending">Ascending</option>
-      </select>
+      <div className="flex justify-center gap-2 items-center  my-5">
+        <label className="label font-bold">Sort By :</label>
+        <select
+          className="select select-warning select-md"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+          name="sortby"
+          id=""
+        >
+          <option selected value="all">
+            Default
+          </option>
+          <option value="descending">Descending</option>
+          <option value="ascending">Ascending</option>
+        </select>
+      </div>
       <PageTitle title="My Toys"></PageTitle>
 
       <table className="table table-auto w-full">

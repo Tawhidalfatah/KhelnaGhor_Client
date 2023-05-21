@@ -1,15 +1,22 @@
+// Required modules
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper";
+import { useRef } from "react";
 
-// Import Swiper styles
+//Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./Banner.css";
 
-// import required modules
-import { Pagination, Navigation, Autoplay } from "swiper";
-import { useRef } from "react";
+const swiperImages = [
+  "https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png",
+  "https://i.ibb.co/dQ2N9mr/rocketbox.png",
+  "https://i.ibb.co/xgbVmGr/khonshubox.png",
+  "https://i.ibb.co/S6hsp6Q/harleybox.png",
+  "https://i.ibb.co/3v0xGPh/mysteriobox.png",
+  "https://i.ibb.co/v3w1Ngj/supergirlbox.png",
+];
 
 const Banner = () => {
   const progressCircle = useRef(null);
@@ -20,12 +27,14 @@ const Banner = () => {
   };
   return (
     <>
+      {/* Header tag for mobile devices */}
       <h1 className="lg:hidden text-3xl text-center text-black">
         Pop up your collection
         <br /> with our newly imported
         <br />
         Funko POPs!!
       </h1>
+      {/* Swiper component functionalities*/}
       <Swiper
         centeredSlides={true}
         spaceBetween={30}
@@ -42,87 +51,24 @@ const Banner = () => {
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper  bg-base-300 mt-3 rounded-lg"
       >
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img
-              src="https://i.ibb.co/3WxH8Q5/Pop-Zombie-Deadpool-hi-res.png"
-              alt=""
-            />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
+        {/* Swiper Slides */}
+        {swiperImages.map((img, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex justify-center">
+              <img src={img} alt="" />
+              <div className="hidden lg:flex items-center text-center ">
+                <h1 className="text-5xl font-bold text-black leading-relaxed">
+                  Pop up your collection
+                  <br /> with our{" "}
+                  <span className="text-[#F5BB00]">exclusive</span>
+                  <br />
+                  Funko POPs!!
+                </h1>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img src="https://i.ibb.co/dQ2N9mr/rocketbox.png" alt="" />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img src="https://i.ibb.co/xgbVmGr/khonshubox.png" alt="" />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img src="https://i.ibb.co/S6hsp6Q/harleybox.png" alt="" />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img src="https://i.ibb.co/3v0xGPh/mysteriobox.png" alt="" />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center gap-2">
-            <img src="https://i.ibb.co/v3w1Ngj/supergirlbox.png" alt="" />
-            <div className="hidden lg:flex items-center text-center ">
-              <h1 className="text-5xl text-black leading-relaxed">
-                Pop up your collection
-                <br /> with our newly imported
-                <br />
-                Funko POPs!!
-              </h1>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
+
         <div className="autoplay-progress" slot="container-end">
           <svg viewBox="0 0 48 48" ref={progressCircle}>
             <circle cx="24" cy="24" r="20"></circle>

@@ -8,7 +8,7 @@ import SubCategory from "../SubCategory/SubCategory";
 const Home = () => {
   return (
     <div>
-      <PageTitle title="Home Page"></PageTitle>
+      <PageTitle title="KG || Home"></PageTitle>
       <Banner></Banner>
       <Gallery></Gallery>
       <SubCategory></SubCategory>

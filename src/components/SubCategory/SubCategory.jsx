@@ -25,13 +25,17 @@ const SubCategory = () => {
   return (
     <>
       <div>
-        <Tabs className="tabs tabs-boxed">
+        <Tabs className="tabs flex justify-center ">
           <TabList>
             <Tab
               onClick={() => {
                 setActiveTab("Marvel");
               }}
-              className={activeTab === "Marvel" ? "tab tab-active" : "tab"}
+              className={
+                activeTab === "Marvel"
+                  ? "tab tab-lifted text-2xl  bg-[#F5BB00] font-bold text-black"
+                  : "tab tab-lifted text-2xl font-bold"
+              }
             >
               Marvel
             </Tab>
@@ -39,7 +43,11 @@ const SubCategory = () => {
               onClick={() => {
                 setActiveTab("DC");
               }}
-              className={activeTab === "DC" ? "tab tab-active" : "tab"}
+              className={
+                activeTab === "DC"
+                  ? "tab tab-lifted text-2xl bg-[#F5BB00] font-bold text-black"
+                  : "tab tab-lifted text-2xl font-bold"
+              }
             >
               DC
             </Tab>
@@ -47,7 +55,11 @@ const SubCategory = () => {
               onClick={() => {
                 setActiveTab("Star Wars");
               }}
-              className={activeTab === "Star Wars" ? "tab tab-active" : "tab"}
+              className={
+                activeTab === "Star Wars"
+                  ? "tab tab-lifted text-2xl bg-[#F5BB00] font-bold text-black"
+                  : "tab tab-lifted text-2xl font-bold"
+              }
             >
               Star Wars
             </Tab>
@@ -55,23 +67,19 @@ const SubCategory = () => {
               onClick={() => {
                 setActiveTab(" ");
               }}
-              className={activeTab === " " ? "tab tab-active" : "tab"}
+              className={
+                activeTab === " "
+                  ? "tab tab-lifted text-2xl bg-[#F5BB00] font-bold text-black"
+                  : "tab tab-lifted text-2xl font-bold"
+              }
             >
               All
             </Tab>
           </TabList>
-          <TabPanel>
-            <h1></h1>
-          </TabPanel>
-          <TabPanel>
-            <h1></h1>
-          </TabPanel>
-          <TabPanel>
-            <h1></h1>
-          </TabPanel>
-          <TabPanel>
-            <h1></h1>
-          </TabPanel>
+          <TabPanel></TabPanel>
+          <TabPanel></TabPanel>
+          <TabPanel></TabPanel>
+          <TabPanel></TabPanel>
         </Tabs>
       </div>
 
@@ -80,7 +88,7 @@ const SubCategory = () => {
           <InfinitySpin width="200" color="#F5BB00"></InfinitySpin>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ml-24 mt-14">
           {allToys.map((toy) => (
             <ToyCard key={toy._id} toy={toy}></ToyCard>
           ))}

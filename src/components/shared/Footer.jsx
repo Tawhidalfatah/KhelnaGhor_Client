@@ -1,6 +1,9 @@
+import { FaRobot } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-[#373A36] text-white rounded">
+      <FaRobot className="text-[#F5BB00] w-24 h-24" />
       <div className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>

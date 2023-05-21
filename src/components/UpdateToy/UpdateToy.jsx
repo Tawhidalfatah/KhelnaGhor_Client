@@ -2,11 +2,14 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import PageTitle from "../Reusable/PageTitle/PageTitle";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
 
 const UpdateToy = () => {
   const navigate = useNavigate();
+  const [toy, setToy] = useState({});
   const id = useParams();
   const toyId = id.id;
+  console.log(toy);
 
   const {
     register,
@@ -33,46 +36,62 @@ const UpdateToy = () => {
       });
   };
   console.log(errors);
+  useEffect(() => {
+    fetch(`https://b7a11-toy-marketplace-server.vercel.app/toy/${toyId}`)
+      .then((res) => res.json())
+      .then((data) => setToy(data));
+  }, [toyId]);
 
   return (
-    <div className="mt-44">
-      <PageTitle title={`Update:`}></PageTitle>
-      {/* <figure className="flex justify-center">
-        <img className="w-72 h-72" src={toyDetails?.picture} alt="" />
-      </figure> */}
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className="input input-bordered input-md"
-          type="number"
-          placeholder="Price"
-          {...register("price", { required: true })}
-        />
+    <>
+      <h1 className="text-center text-5xl font-bold mt-28">
+        Update: {toy.toyname}
+      </h1>
+      <div className="flex justify-center mt-20">
+        <div className="card border-2 w-96 bg-base-100 shadow-xl">
+          <PageTitle title={`Update:`}></PageTitle>
+          <figure className="px-10 pt-10">
+            <img src={toy.picture} className="rounded-xl" />
+          </figure>
+          <div className="card-body items-center text-center">
+            <form
+              className=" flex flex-col gap-2"
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <div className="flex justify-center gap-2">
+                <input
+                  className="input w-full input-bordered"
+                  type="number"
+                  placeholder="Price (USD)"
+                  {...register("price", { required: true })}
+                />
+                <input
+                  className="input w-full input-bordered"
+                  type="number"
+                  placeholder="Quanitity"
+                  {...register("quantity", { required: true })}
+                />
+              </div>
+              <div className="flex justify-center">
+                <input
+                  className="w-1/2 input input-bordered input-md"
+                  type="text"
+                  placeholder="Toy Description"
+                  {...register("description", { required: true })}
+                />
+              </div>
 
-        <div className="flex justify-center">
-          <input
-            className="input input-bordered input-md"
-            type="number"
-            placeholder="Available Quanitity"
-            {...register("quantity", { required: true })}
-          />
+              <div className="flex justify-center">
+                <input
+                  className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
+                  type="submit"
+                />
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="flex justify-center">
-          <input
-            className="w-1/2 input input-bordered input-md"
-            type="text"
-            placeholder="Toy Description"
-            {...register("description", { required: true })}
-          />
-        </div>
-
-        <div className="flex justify-center">
-          <input
-            className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
-            type="submit"
-          />
-        </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };
 

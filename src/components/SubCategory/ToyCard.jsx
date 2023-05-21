@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Rating } from "@smastrom/react-rating";
 
 const ToyCard = ({ toy }) => {
   const { user } = useContext(AuthContext);
@@ -26,17 +27,22 @@ const ToyCard = ({ toy }) => {
   };
   return (
     <div className="card w-80 lg:w-96 bg-base-100 shadow-xl">
-      <figure className="px-10 pt-10">
-        <img src={picture} alt="Shoes" className="rounded-xl" />
+      <figure className="px-10 pt-10 ">
+        <img
+          src={picture}
+          alt="Shoes"
+          className="border rounded-lg bg-base-300"
+        />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{toyname}</h2>
         <p>Price: {price}</p>
-        <p>Rating: {rating}</p>
+        <Rating style={{ maxWidth: 180 }} value={Math.round(rating)} readOnly />
+        <p>Rating: </p>
         <div className="card-actions">
           <button
             onClick={() => handleDetails(_id)}
-            className="btn btn-primary"
+            className="btn bg-[#F5BB00] hover:bg-[#cc9c00] text-xl text-black"
           >
             View Details
           </button>
