@@ -27,7 +27,7 @@ const ToyDetails = () => {
 
   return (
     <>
-      <PageTitle title={`${toyname} Details`}></PageTitle>
+      <PageTitle title={`KG || ${toyname} Details`}></PageTitle>
       <div className="card  bg-base-100 shadow-xl py-36">
         <figure>
           <img

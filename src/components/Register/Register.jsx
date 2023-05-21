@@ -32,7 +32,7 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen">
-      <PageTitle title={`Registration`}></PageTitle>
+      <PageTitle title={`KG || Registration`}></PageTitle>
       <div className="hero-content flex-col lg:flex-row-reverse ">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Register Now!</h1>

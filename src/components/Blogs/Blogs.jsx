@@ -3,7 +3,7 @@ import PageTitle from "../Reusable/PageTitle/PageTitle";
 const Blogs = () => {
   return (
     <div>
-      <PageTitle title={`Blogs`}></PageTitle>
+      <PageTitle title={`KG || Blogs`}></PageTitle>
       <br />
       <h1 className="text-7xl text-center my-5">Questions and Answers</h1>
       <br />

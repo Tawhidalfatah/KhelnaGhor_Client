@@ -49,7 +49,7 @@ const UpdateToy = () => {
       </h1>
       <div className="flex justify-center mt-20">
         <div className="card border-2 w-96 bg-base-100 shadow-xl">
-          <PageTitle title={`Update:`}></PageTitle>
+          <PageTitle title={`KG || Update:${toy.toyname}`}></PageTitle>
           <figure className="px-10 pt-10">
             <img src={toy.picture} className="border rounded-xl bg-base-300" />
           </figure>

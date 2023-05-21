@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center border rounded-lg mt-44 p-20">
-      <PageTitle title="Login Page"></PageTitle>
+      <PageTitle title="KG || Login"></PageTitle>
       <div className=" flex items-center flex-row-reverse">
         <div className="text-center w-full">
           <h1 className="text-5xl font-bold">Login now!</h1>

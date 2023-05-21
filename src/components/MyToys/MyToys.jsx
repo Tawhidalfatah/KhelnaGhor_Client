@@ -29,7 +29,7 @@ const MyToys = () => {
 
   return (
     <>
-      <PageTitle title="My Toys"></PageTitle>
+      <PageTitle title="KG || My Toys"></PageTitle>
 
       {loader ? (
         <div className="flex justify-center my-72">

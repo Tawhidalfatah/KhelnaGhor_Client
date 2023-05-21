@@ -23,7 +23,7 @@ const AllToys = () => {
   return (
     <>
       <div className="flex justify-center my-5 ">
-        <PageTitle title={`All Toys`}></PageTitle>
+        <PageTitle title={`KG || All Toys`}></PageTitle>
 
         <input
           onChange={(e) => setSearchName(e.target.value)}

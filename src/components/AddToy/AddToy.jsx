@@ -37,7 +37,7 @@ const AddToy = () => {
 
   return (
     <>
-      <PageTitle title={`Add Toy`}></PageTitle>
+      <PageTitle title={`KG || Add Toy`}></PageTitle>
       <div className="mt-24 border-4 shadow-lg rounded-lg p-14 font-extrabold">
         <h1 className="text-6xl text-center font-bold my-14">Add a Toy</h1>
         <form
