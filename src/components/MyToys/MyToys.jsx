@@ -4,7 +4,7 @@ import MyToyRow from "./MyToyRow";
 import PageTitle from "../Reusable/PageTitle/PageTitle";
 
 const MyToys = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setLoader } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [sortBy, setSortBy] = useState(" ");
@@ -12,10 +12,14 @@ const MyToys = () => {
   console.log(sortBy);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoys/${userEmail}?sortby=${sortBy}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server.vercel.app/alltoys/${userEmail}?sortby=${sortBy}`
+    )
       .then((res) => res.json())
-      .then((data) => setMyToys(data));
-  }, [userEmail, toggle, sortBy]);
+      .then((data) => {
+        setMyToys(data);
+      });
+  }, [userEmail, toggle, sortBy, setLoader]);
 
   console.log(myToys);
 
@@ -32,6 +36,7 @@ const MyToys = () => {
         <option value="ascending">Ascending</option>
       </select>
       <PageTitle title="My Toys"></PageTitle>
+
       <table className="table table-auto w-full">
         <thead>
           <tr>

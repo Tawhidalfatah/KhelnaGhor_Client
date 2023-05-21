@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
-
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import PageTitle from "../Reusable/PageTitle/PageTitle";
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
+  const navigate = useNavigate();
   const id = useParams();
   const toyId = id.id;
 
@@ -12,20 +14,29 @@ const UpdateToy = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/updatetoy/${toyId}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://b7a11-toy-marketplace-server.vercel.app/updatetoy/${toyId}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        if (result.modifiedCount > 0) {
+          Swal.fire("Good job!", "You Updated Toy Successfully", "success");
+          navigate("/mytoys");
+        }
+      });
   };
   console.log(errors);
 
   return (
     <div className="mt-44">
+      <PageTitle title={`Update:`}></PageTitle>
       {/* <figure className="flex justify-center">
         <img className="w-72 h-72" src={toyDetails?.picture} alt="" />
       </figure> */}

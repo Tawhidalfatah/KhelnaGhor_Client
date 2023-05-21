@@ -1,5 +1,3 @@
-// import Marquee from "react-fast-marquee";
-
 const imgSources = [
   "https://i.ibb.co/rQbvcZP/logan.png",
 
@@ -32,7 +30,7 @@ const Gallery = () => {
       <h1 className="text-center text-3xl lg:text-6xl my-10">
         Meet your favourite superheroes!!
       </h1>
-      <div className="grid grid-cols-4 my-10 py-10 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-4 my-10 py-10 gap-5">
         {imgSources.map((img, index) => {
           return (
             <div
@@ -43,13 +41,6 @@ const Gallery = () => {
             </div>
           );
         })}
-
-        {/* 
-      <Marquee style={{ border: "4px solid #F5BB00", borderRadius: "8px" }}>
-        {imgSources.map((img, index) => (
-          <img key={index} src={img} width="400" height="400"></img>
-        ))}
-      </Marquee> */}
       </div>
     </>
   );

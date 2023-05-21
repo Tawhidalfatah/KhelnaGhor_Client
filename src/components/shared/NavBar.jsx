@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { FaRobot } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -31,62 +32,136 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#56A3A6] rounded-box w-52 font-bold font-montserrat"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#373A36] rounded-box w-52 font-bold font-montserrat"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-[#F5BB00] active:bg-[#F5BB00]"
+                    : "active:bg-[#F5BB00]  "
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li tabIndex={0}>
-              <a>All Toys</a>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-[#F5BB00] active:bg-[#F5BB00]"
+                    : "active:bg-[#F5BB00]  "
+                }
+                to="/alltoys"
+              >
+                All Toys
+              </NavLink>
             </li>
             {user && (
               <>
                 <li>
-                  <a>My Toys</a>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-[#F5BB00] active:bg-[#F5BB00]"
+                        : "active:bg-[#F5BB00]  "
+                    }
+                    to="mytoys"
+                  >
+                    My Toys
+                  </NavLink>
                 </li>
                 <li>
-                  <a>Add a Toy</a>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-[#F5BB00] active:bg-[#F5BB00]"
+                        : "active:bg-[#F5BB00]  "
+                    }
+                    to="/addtoy"
+                  >
+                    Add a Toy
+                  </NavLink>
                 </li>
               </>
             )}
             <li>
-              <a>Blogs</a>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? " text-[#F5BB00] active:bg-[#F5BB00]"
+                    : "active:bg-[#F5BB00]  "
+                }
+                to="/blogs"
+              >
+                Blogs
+              </NavLink>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost font-montserrat normal-case text-xl lg:text-3xl">
-          KhelnaGhor
-        </a>
+        <div className="flex items-end">
+          <FaRobot className="w-14 h-14 text-[#F5BB00]" />
+          <a className="btn btn-ghost font-montserrat normal-case text-xl lg:text-3xl">
+            KhelnaGhor
+          </a>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex font-bold">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/" className="active:bg-[#F5BB00] active:text-black">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? " text-[#F5BB00]" : "active:bg-[#F5BB00]  "
+              }
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
-              className="active:bg-[#F5BB00] active:text-black"
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? " text-[#F5BB00]" : "active:bg-[#F5BB00] "
+              }
               to="/alltoys"
             >
               All Toys
-            </Link>
+            </NavLink>
           </li>
           {user && (
             <>
               <li>
-                <Link to="/mytoys">My Toys</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? " text-[#F5BB00]" : "active:bg-[#F5BB00] "
+                  }
+                  to="/mytoys"
+                >
+                  My Toys
+                </NavLink>
               </li>
               <li>
-                <Link to="/addtoy">Add Toy</Link>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? " text-[#F5BB00]" : "active:bg-[#F5BB00]"
+                  }
+                  to="/addtoy"
+                >
+                  Add Toy
+                </NavLink>
               </li>
             </>
           )}
           <li>
-            <Link className="active:bg-[#F5BB00] active:text-black" to="/blogs">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? " text-[#F5BB00]" : "active:bg-[#F5BB00]"
+              }
+              to="/blogs"
+            >
               Blogs
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -101,7 +176,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#56A3A6] rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#373A36] rounded-box w-52"
             >
               <li>
                 <p>{user?.email}</p>

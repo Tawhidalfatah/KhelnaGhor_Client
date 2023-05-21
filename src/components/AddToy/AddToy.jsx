@@ -1,16 +1,19 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addtoy", {
+    fetch("https://b7a11-toy-marketplace-server.vercel.app/addtoy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -18,7 +21,13 @@ const AddToy = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        console.log(result);
+        if (result.insertedId) {
+          Swal.fire("Good job!", "You added Toy Successfully", "success");
+          navigate("/alltoys");
+        }
+      });
   };
   console.log(errors);
 

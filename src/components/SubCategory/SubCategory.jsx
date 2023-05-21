@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
 import ToyCard from "./ToyCard";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { InfinitySpin } from "react-loader-spinner";
 
 const SubCategory = () => {
   const [allToys, setAllToys] = useState([]);
   const [activeTab, setActiveTab] = useState(" ");
+  const [loader, setLoader] = useState(false);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/subcategory?subcategory=${activeTab}`)
+    setLoader(true);
+    fetch(
+      `https://b7a11-toy-marketplace-server.vercel.app/subcategory?subcategory=${activeTab}`
+    )
       .then((res) => res.json())
-      .then((data) => setAllToys(data));
+      .then((data) => {
+        setAllToys(data);
+        setLoader(false);
+      });
   }, [activeTab]);
 
   console.log(allToys);
@@ -65,11 +74,18 @@ const SubCategory = () => {
           </TabPanel>
         </Tabs>
       </div>
-      <div className="grid grid-cols-3 gap-5">
-        {allToys.map((toy) => (
-          <ToyCard key={toy._id} toy={toy}></ToyCard>
-        ))}
-      </div>
+
+      {loader ? (
+        <div className="flex justify-center my-72">
+          <InfinitySpin width="200" color="#F5BB00"></InfinitySpin>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14">
+          {allToys.map((toy) => (
+            <ToyCard key={toy._id} toy={toy}></ToyCard>
+          ))}
+        </div>
+      )}
     </>
   );
 };

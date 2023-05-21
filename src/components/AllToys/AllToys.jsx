@@ -7,7 +7,9 @@ const AllToys = () => {
   const [searchName, setSearchName] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/alltoys?toyname=${searchName}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server.vercel.app/alltoys?toyname=${searchName}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data));
   }, [searchName]);
@@ -16,6 +18,7 @@ const AllToys = () => {
     <>
       <div className="flex justify-center my-5 ">
         <PageTitle title={`All Toys`}></PageTitle>
+
         <input
           onChange={(e) => setSearchName(e.target.value)}
           type="text"
