@@ -28,7 +28,7 @@ const SubCategory = () => {
         <h1 className="text-center text-6xl font-bold my-14">
           Browse by Sub-Category
         </h1>
-        <Tabs className="tabs flex justify-center ">
+        <Tabs className="tabs lg:flex lg:justify-center ">
           <TabList>
             <Tab
               onClick={() => {
@@ -91,7 +91,7 @@ const SubCategory = () => {
           <InfinitySpin width="200" color="#F5BB00"></InfinitySpin>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ml-24 mt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ml-12 lg:ml-24 mt-14">
           {allToys.map((toy) => (
             <ToyCard key={toy._id} toy={toy}></ToyCard>
           ))}

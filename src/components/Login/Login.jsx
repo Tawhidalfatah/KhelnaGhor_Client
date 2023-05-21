@@ -3,10 +3,12 @@ import { FaGoogle } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import PageTitle from "../Reusable/PageTitle/PageTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(" ");
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
@@ -18,35 +20,40 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire("Good job!", "You have Succesfully logged in!", "success");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error));
   };
 
+  console.log(error);
   const handleGoogleSignIn = (event) => {
     event.preventDefault();
     googleSignIn()
       .then((result) => {
         console.log(result.user);
+        Swal.fire("Good job!", "You have Succesfully logged in!", "success");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error));
   };
 
   return (
-    <div className="hero min-h-screen rounded-lg mt-5">
+    <div className="flex justify-center border rounded-lg mt-44 p-20">
       <PageTitle title="Login Page"></PageTitle>
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center">
+      <div className=" flex items-center flex-row-reverse">
+        <div className="text-center w-full">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
             Login now to browse your favourite PoP figures!!
           </p>
         </div>
-        <div className="card w-full max-w-xl shadow-2xl bg-[#373A36]">
+        <div className="card  w-full shadow-2xl bg-[#373A36]">
           <div className="card-body ">
             <form>
               <div className="form-control">
+                {error && <p className="text-red-700">{error.message}</p>}
+
                 <label className="label">
                   <span className="label-text text-white">Email</span>
                 </label>
@@ -74,7 +81,7 @@ const Login = () => {
 
                 <Link
                   to="/register"
-                  className="link text-white hover:text-[#F5BB00]"
+                  className="link py-2 text-white hover:text-[#F5BB00]"
                 >
                   Dont have an account? Sign Up!!
                 </Link>

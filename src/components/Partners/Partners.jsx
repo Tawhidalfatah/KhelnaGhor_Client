@@ -12,8 +12,10 @@ const Partners = () => {
   ];
   return (
     <div className="mt-36 pb-14">
-      <h2 className="text-center text-5xl py-10">Our Affiliated Partners</h2>
-      <div className="flex flex-col lg:flex-row items-center justify-around py-16">
+      <h2 className="text-center text-5xl font-bold py-10">
+        Our Affiliated Partners
+      </h2>
+      <div className="flex flex-col gap-4 lg:gap-1 lg:flex-row items-center justify-around py-16">
         {imgSources.map((img, index) => (
           <img key={index} src={img} width="200" height="200"></img>
         ))}

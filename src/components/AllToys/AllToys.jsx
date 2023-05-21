@@ -37,7 +37,7 @@ const AllToys = () => {
           <InfinitySpin width="200" color="#F5BB00"></InfinitySpin>
         </div>
       ) : (
-        <div className="overflow-x-auto mt-2 rounded-lg shadow-lg">
+        <div className="overflow-x-auto mt-2 pb-28 rounded-lg shadow-lg">
           <table className="table w-full">
             {/* head */}
             <thead>

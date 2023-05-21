@@ -26,7 +26,7 @@ const OtherProducts = () => {
   });
   return (
     <div className="my-32">
-      <h1 className="text-center text-5xl my-10">
+      <h1 className="text-center text-3xl lg:text-6xl font-bold my-10">
         We also have Merch and Games!!
       </h1>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 overflow-x-hidden overflow-y-hidden">

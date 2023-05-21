@@ -1,15 +1,18 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import PageTitle from "../Reusable/PageTitle/PageTitle";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState("");
+  const [error, setError] = useState(" ");
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -21,8 +24,10 @@ const Register = () => {
         })
           .then(() => {})
           .catch((error) => console.log(error));
+        Swal.fire("Good job!", "You have Succesfully Registered!", "success");
+        navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error));
   };
 
   return (
@@ -37,6 +42,7 @@ const Register = () => {
           <div className="card-body">
             <form>
               <div className="form-control">
+                {error && <p>{error.message}</p>}
                 <label className="label">
                   <span className="label-text text-white">Name</span>
                 </label>

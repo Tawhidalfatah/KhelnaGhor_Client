@@ -18,7 +18,7 @@ There are several pages--
 
 ## Live Link
 
-- [Click to see the Khela Ghor Website](https://b7a11-toy-marketplace-ae6f5.web.app/)
+- [Click to see the Khelna Ghor Website](https://b7a11-toy-marketplace-ae6f5.web.app/)
 
 ## Resources Used
 

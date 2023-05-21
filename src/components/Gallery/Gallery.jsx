@@ -54,21 +54,19 @@ const imgSources = [
 const Gallery = () => {
   return (
     <>
-      <h1 className="text-center text-3xl lg:text-6xl my-14">
+      <h1 className="text-center font-bold text-3xl lg:text-6xl my-14">
         Meet your favourite Superheroes & Villains
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 my-10 py-10 gap-5">
         {imgSources.map((img, index) => {
           return (
-            <>
-              <div
-                data-tip={img.phrase}
-                className="border tooltip tooltip-warning  border-[#F5BB00] rounded-lg shadow-lg flex justify-center"
-                key={index}
-              >
-                <img src={img.img} width={200} height={200} />
-              </div>
-            </>
+            <div
+              data-tip={img.phrase}
+              className="border tooltip tooltip-warning  border-[#F5BB00] rounded-lg shadow-lg flex justify-center"
+              key={index}
+            >
+              <img src={img.img} width={200} height={200} />
+            </div>
           );
         })}
       </div>

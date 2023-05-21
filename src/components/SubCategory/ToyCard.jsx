@@ -26,7 +26,7 @@ const ToyCard = ({ toy }) => {
     }
   };
   return (
-    <div className="card w-80 lg:w-96 bg-base-100 shadow-xl">
+    <div className="card w-72 lg:w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10 ">
         <img
           src={picture}
@@ -35,10 +35,10 @@ const ToyCard = ({ toy }) => {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{toyname}</h2>
-        <p>Price: {price}</p>
+        <h2 className="card-title text-3xl">{toyname}</h2>
+        <p className="font-bold text-xl">Price: {price} $</p>
         <Rating style={{ maxWidth: 180 }} value={Math.round(rating)} readOnly />
-        <p>Rating: </p>
+
         <div className="card-actions">
           <button
             onClick={() => handleDetails(_id)}

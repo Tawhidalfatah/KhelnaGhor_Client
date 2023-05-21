@@ -28,7 +28,7 @@ const Banner = () => {
   return (
     <>
       {/* Header tag for mobile devices */}
-      <h1 className="lg:hidden text-3xl text-center text-black">
+      <h1 className="lg:hidden text-5xl my-4 font-bold text-center text-black">
         Pop up your collection
         <br /> with our newly imported
         <br />

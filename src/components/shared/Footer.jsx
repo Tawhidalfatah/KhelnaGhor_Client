@@ -4,6 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-[#373A36] text-white rounded">
       <FaRobot className="text-[#F5BB00] w-24 h-24" />
+      <h2 className="text-3xl font-bold">KhelnaGhor</h2>
       <div className="grid grid-flow-col gap-4">
         <a
           href="https://funko.com/funko-about-us/funko-about-us-landing.html"
